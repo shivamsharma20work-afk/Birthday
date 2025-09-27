@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Happy Birthday — Surprise</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div class="app">
+        <section id="page-1" class="page active">
+            <div class="card login-card">
+                <h1>Welcome 🎉</h1>
+                <p>Enter your name to open the surprise</p>
+                <input id="name-input" placeholder="Type your name" autocomplete="off" />
+                <div class="row">
+                    <button id="login-btn">Open</button>
+                </div>
+                <p id="login-msg" class="error"></p>
+            </div>
+        </section>
+
+        <section id="page-2" class="page">
+            <div class="scene">
+                <div id="balloon-container"></div>
+                <div id="message-area" class="message-area"></div>
+            </div>
+            <div class="controls">
+                <button id="next-2" class="next-btn">Next</button>
+            </div>
+        </section>
+
+        <section id="page-3" class="page">
+            <div class="blocks">
+                <div class="block">M bahut khrb hu express krne but just aise hi thnks for always standing next to me</div>
+                <div class="block">What I love About u ki U have Dholu Bholu.Ek apni photo bhejna dholu bholu ke saath</div>
+                <div class="block">gravity se jyda tej tumhari ankhone aakarsit kara h</div>
+            </div>
+            <div class="controls">
+                <button id="next-3" class="next-btn">Next</button>
+            </div>
+        </section>
+
+        <section id="page-4" class="page">
+            <div class="gallery">
+                <img class="photo" src="photo1.jpg" alt="photo1">
+                <img class="photo" src="photo2.jpg" alt="photo2">
+                <img class="photo" src="photo3.jpg" alt="photo3">
+                <img class="photo" src="photo4.jpg" alt="photo4">
+                <img class="photo" src="photo5.jpg" alt="photo1">
+                <img class="photo" src="photo6.jpg" alt="photo2">
+                <img class="photo" src="photo7.jpg" alt="photo3">
+                <img class="photo" src="photo8.jpg" alt="photo4">
+            </div>
+
+            <audio id="bg-music" loop>
+                <source src="crop.mp3" type="audio/mpeg">
+            </audio>
+
+            <div class="controls">
+                <button id="play-music">Play/Pause Music</button>
+                <button id="next-4" class="next-btn">Next</button> 
+            </div>
+        </section>
+        
+        <section id="page-5" class="page">
+            <div class="video-container">
+                <h2>Yaad h Na Chicken Chor</h2>
+                <video id="birthday-video" controls poster="img/video-poster.jpg">
+                    <source src="viedo_01.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p>Chicken Chor 🥰</p>
+            </div>
+            <div class="controls">
+                 <button id="next-5" class="next-btn">The End! ❤️</button>
+            </div>
+        </section>
+    </div>
+
+
+    <script src="script.js"></script>
+</body>
+</html>

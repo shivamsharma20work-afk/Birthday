@@ -1,0 +1,117 @@
+:root{
+    --bg:#0f1724;
+    --card:#111827;
+    --accent:#ff6b6b;
+    --soft:#94a3b8;
+}
+*{box-sizing:border-box}
+html,body{
+    height:100%;
+    margin:0;
+    font-family:Inter,system-ui,Segoe UI,Roboto,'Helvetica Neue',Arial;
+    color:#e6eef8;
+    background:linear-gradient(180deg,var(--bg),#071126);
+}
+.app{height:100%;display:flex;align-items:center;justify-content:center;padding:20px}
+/* Height increase for video page */
+.page{display:none;max-width:900px;width:100%;height:90vh;align-items:center;justify-content:center;flex-direction:column} 
+.page.active{display:flex}
+.card{background:rgba(255,255,255,0.03);padding:30px;border-radius:12px;backdrop-filter:blur(6px);box-shadow:0 6px 30px rgba(2,6,23,0.6)}
+.login-card{width:100%;max-width:420px;text-align:center}
+.login-card input{width:100%;padding:12px 14px;margin-top:12px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:inherit}
+.row{margin-top:16px}
+button{padding:10px 16px;border-radius:8px;border:none;cursor:pointer;background:var(--accent);color:white;font-weight:600}
+.error{color:#ffb4b4;margin-top:10px}
+.hint{color:var(--soft);font-size:13px}
+
+/* Page 2 styles */
+.scene{position:relative;flex:1;display:flex;align-items:center;justify-content:center;overflow:hidden;width:100%}
+#balloon-container{position:absolute;left:0;right:0;bottom:0;height:100%;pointer-events:none}
+.balloon{position:absolute;bottom:-120px;width:60px;height:80px;border-radius:50% 50% 45% 45%;display:flex;align-items:center;justify-content:center}
+.balloon:after{content:'';position:absolute;bottom:-12px;height:22px;width:2px;background:rgba(255,255,255,0.25);}
+.balloon.pop{animation:pop 0.6s forwards}
+@keyframes pop{to{transform:scale(0.1);opacity:0}}
+
+.message-area{position:relative;z-index:5;text-align:center}
+.message-area .letters{font-size:46px;letter-spacing:6px;color:#fff;font-weight:800;display:inline-block}
+.letter{display:inline-block;opacity:0;transform:translateY(40px) rotate(30deg);}
+.letter.roll-in{animation:rollIn 600ms forwards}
+@keyframes rollIn{to{opacity:1;transform:translateY(0) rotate(0deg)}}
+.letter.fall{animation:fall 1s forwards}
+@keyframes fall{to{transform:translateY(400px) rotate(720deg);opacity:0}}
+
+/* Page 3 blocks */
+.blocks{display:flex;gap:18px;flex-wrap:wrap;justify-content:center;padding:20px}
+.block{min-width:220px;max-width:350px;flex-grow:1;background:linear-gradient(180deg,rgba(255,255,255,0.03),rgba(255,255,255,0.02));padding:20px;border-radius:12px;box-shadow:0 6px 20px rgba(0,0,0,0.6);transform:translateY(30px);opacity:0;transition:all 500ms}
+.block.show{transform:translateY(0);opacity:1}
+
+/* Page 4 gallery */
+.gallery{width:100%;height:70vh;display:flex;align-items:center;justify-content:center;position:relative}
+.photo{position:absolute;width:60vmin;height:60vmin;border-radius:50%;background-size:cover;background-position:center;opacity:0;transform:scale(0.6) rotate(0deg);transition:all 800ms;box-shadow:0 12px 40px rgba(0,0,0,0.6)}
+.photo.active{opacity:1;transform:scale(1) rotate(360deg)}
+.controls{margin-top:18px}
+
+
+/* --- NEW CSS for Page 5 (Video) --- */
+/* --- UPDATED CSS for Page 5 (Video) - Final Aspect Ratio FIX --- */
+#page-5{
+    height: 95vh; 
+    flex-direction: column;
+    justify-content: center; 
+    overflow: hidden; 
+    padding: 20px; 
+}
+
+.video-container{
+    width: 90%;
+    /* Max width थोड़ी और बढ़ाई, ताकि landscape video ke liye aur space mile */
+    max-width: 900px; 
+    background: var(--card);
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 0 40px rgba(0,0,0,0.5);
+    position: relative; /* Added for responsiveness of video */
+}
+
+.video-container h2{
+    color: var(--accent);
+    margin-bottom: 15px;
+    font-size: 1.8em;
+}
+
+#birthday-video{
+    width: 100%;
+    max-height: 60vh; 
+    object-fit: cover; 
+    display: block;
+    margin: 0 auto; 
+    border-radius: 8px;
+    border: 3px solid var(--accent);
+}
+
+/* Mobile Devices ke liye adjustment */
+@media (max-width: 700px) {
+    .video-container {
+        max-width: 95%; 
+        padding: 15px;
+    }
+    #birthday-video {
+        max-height: 40vh; 
+    }
+}
+/* ------------------------------------- */
+/* style.css mein yeh keyframes add kar dena */
+@keyframes floatUp {
+    0% { transform: translateY(0); opacity: 1; }
+    50% { transform: translateY(-50vh); }
+    90% { transform: translateY(-90vh); opacity: 1; }
+    100% { transform: translateY(-100vh) scale(1.5); opacity: 0; }
+}
+
+
+@media (max-width:700px){
+    .message-area .letters{font-size:28px}
+    .blocks{gap:12px} /* Mobile par blocks ke beech gap kam kiya */
+    .block{min-width:80%;font-size:14px} /* Mobile par blocks ko zyada width di */
+}
